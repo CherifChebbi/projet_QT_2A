@@ -27,12 +27,14 @@ CONFIG += c++11
 QT+=sql
 
 SOURCES += \
+    enseignant.cpp \
     evenement.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
 
 HEADERS += \
+    enseignant.h \
     evenement.h \
         mainwindow.h \
     connection.h
