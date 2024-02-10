@@ -7,6 +7,16 @@
 
 class Evenement
 {
+
+private:
+
+    QString nom;
+    int id;
+    QString type;
+    QString localisation;
+     QDate date;
+    int nbr_invites;
+
 public:
     //CONSTRUCTEURS
     Evenement();
@@ -38,14 +48,20 @@ public:
     bool  modifier();
 
 
-private:
+    bool RechercheParID(int IDrecherche);
 
-    QString nom;
-    int id;
-    QString type;
-    QString localisation;
-     QDate date;
-    int nbr_invites;
+    QSqlQueryModel * tri_ID();
+    QSqlQueryModel * tri_nom();
+    QSqlQueryModel * tri_nbr_invites();
+    QSqlQueryModel * tri_date();
+
+   // QSqlQueryModel * afficher_calendar(QDate x);
+    QSqlQueryModel * afficher_calendar(QString x);
+
+    QSqlQueryModel * chercher(QString recherche);
+    QSqlQueryModel * afficherID(int id);
+
+    bool RechercheParDate(QDate DATEErech);
 
 };
 

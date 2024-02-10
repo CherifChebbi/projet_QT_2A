@@ -4,8 +4,11 @@
 #
 #-------------------------------------------------
 
+QT += multimedia
+QT += multimediawidgets
 QT+=core gui sql
-
+QT += printsupport
+QT +=serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,22 +30,32 @@ CONFIG += c++11
 QT+=sql
 
 SOURCES += \
-    enseignant.cpp \
+    arduino.cpp \
     evenement.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    notification.cpp \
+    stati.cpp
 
 HEADERS += \
-    enseignant.h \
+    arduino.h \
     evenement.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    notification.h \
+    stati.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        stati.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=
+
+SUBDIRS += \
+    ../../../../../../../Qt/Qt5.9.9/Examples/Qt-5.9.9/quickcontrols/controls/calendar/calendar.pro
